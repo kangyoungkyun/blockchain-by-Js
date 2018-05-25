@@ -5,6 +5,52 @@ const Blockchain = require('./blockchain');
 //위에서 가져온 모듈의 객체를 만든다.
 const bitcoin = new Blockchain();
 
+const previousBlockHash = "abcdedferefa"
+const currentBlockData = [
+    {
+        amount: 10,
+        sender: 'BACKadffaaf',
+        recipient: 'HONGllalflks'
+
+    },
+    {
+        amount: 20,
+        sender: 'PACKadffaaf',
+        recipient: 'HONGllalflks'
+
+    },
+    {
+        amount: 30,
+        sender: 'PACKadffaaf',
+        recipient: 'HONGllalflks'
+
+    }
+    
+]
+
+const nonce = 100;
+
+
+console.log(bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce))
+
+
+//ec90a89a8364d8762ec3d365f2c8c91b1547af493e068009c119356b41f9699b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //새로운 블락 만들기
 bitcoin.createNewBlock(1111,"aaaaaaa","1a1a1a1a1a1a");
 
@@ -31,19 +77,6 @@ bitcoin.createNewBlock(3333,"ccccccc","3c3c3c3c3c3c");
 
 //찍어보기
 console.log(bitcoin.chain[2])
-
-
-//결과
-/*
-{ index: 3,
-  timestamp: 1527230266389,
-  transactions: 
-   [ { amount: 777, sender: 'PACKadffaaf', recipient: 'HONGllalflks' },
-     { amount: 888, sender: 'PACKadffaaf', recipient: 'HONGllalflks' },
-     { amount: 999, sender: 'PACKadffaaf', recipient: 'HONGllalflks' } ],
-  nonce: 3333,
-  hash: '3c3c3c3c3c3c',
-  previousBlockHash: 'ccccccc' }
 */
 
 
