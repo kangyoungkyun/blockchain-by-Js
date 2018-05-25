@@ -25,5 +25,10 @@ Blockchain.prototype.createNewBlock = function(nonce,previousBlockHash,hash){
 
 }
 
+//마지막 블록 얻기 - chain 배열에는 블록데이터가 들어간다. 맨마지막 블록을 가져와라.
+Blockchain.prototype.getLastBlock = function(){
+    return this.chain[this.chain.length - 1];
+}
+
 //Blockchain 모듈화
 module.exports = Blockchain;

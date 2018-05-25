@@ -6,6 +6,8 @@ const bitcoin = new Blockchain();
 
 //새로운 블락 만들기
 bitcoin.createNewBlock(1111,"aaaaaaa","1a1a1a1a1a1a");
+bitcoin.createNewBlock(2222,"bbbbbbb","2b2b2b2b2b2b");
+bitcoin.createNewBlock(3333,"ccccccc","3c3c3c3c3c3c");
 
 //찍어보기
 console.log(bitcoin)
