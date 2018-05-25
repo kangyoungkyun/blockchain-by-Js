@@ -49,5 +49,12 @@ Blockchain.prototype.createNewTransaction = function(amount,sender,recipient){
     return this.getLastBlock()['index'] + 1
 }
 
+//해쉬 값 리턴 함수
+Blockchain.prototype.hashBlock = function(previousBlockHash,currentBlockData,nonce){
+    const dataAsString = previousBlockHash + nonce.toString() +  JSON.stringify(currentBlockData);
+    const hash = sha256(dataAsString);
+    return hash
+}
+
 //Blockchain 모듈화
 module.exports = Blockchain;

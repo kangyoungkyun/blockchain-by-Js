@@ -1,7 +1,6 @@
 //blockchain.js 모듈을 이곳에서 가져다 쓰겠다.
 const Blockchain = require('./blockchain');
-//sha256 모듈을 가져다 쓰겠다.
-const  sha256 = require('sha256');
+
 
 //위에서 가져온 모듈의 객체를 만든다.
 const bitcoin = new Blockchain();
