@@ -11,8 +11,18 @@ bitcoin.createNewBlock(1111,"aaaaaaa","1a1a1a1a1a1a");
 bitcoin.createNewTransaction(100,'PACKadffaaf','HONGllalflks') 
 
 
-//새로운 블락 생성 - 채굴후 얻은 블락
+//새로운 블락 생성 - 채굴후 얻은 블락(마이닝)
 bitcoin.createNewBlock(2222,"bbbbbbb","2b2b2b2b2b2b");
+
+//새로은 트랜잭션 생성2 - (총금액, 보내는이, 받는이)
+bitcoin.createNewTransaction(777,'PACKadffaaf','HONGllalflks') 
+//새로은 트랜잭션 생성3 - (총금액, 보내는이, 받는이)
+bitcoin.createNewTransaction(888,'PACKadffaaf','HONGllalflks') 
+//새로은 트랜잭션 생성4. - (총금액, 보내는이, 받는이)
+bitcoin.createNewTransaction(999,'PACKadffaaf','HONGllalflks') 
+
+
+
 
 //찍어보기
 console.log(bitcoin)
@@ -20,21 +30,13 @@ console.log(bitcoin)
 
 //결과
 /*
-Blockchain {
-  chain: 
-   [ { index: 1,
-       timestamp: 1527229062594,
-       transactions: [],
-       nonce: 1111,
-       hash: '1a1a1a1a1a1a',
-       previousBlockHash: 'aaaaaaa' },
-     { index: 2,
-       timestamp: 1527229062594,
-       transactions: [Array],
-       nonce: 2222,
-       hash: '2b2b2b2b2b2b',
-       previousBlockHash: 'bbbbbbb' } ],
-  pendingTransaction: [] }
+{ index: 2,
+  timestamp: 1527229359157,
+  transactions: 
+   [ { amount: 100, sender: 'PACKadffaaf', recipient: 'HONGllalflks' } ],
+  nonce: 2222,
+  hash: '2b2b2b2b2b2b',
+  previousBlockHash: 'bbbbbbb' }
 
 */
 
