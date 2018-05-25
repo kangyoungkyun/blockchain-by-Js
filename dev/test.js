@@ -1,5 +1,7 @@
 //blockchain.js 모듈을 이곳에서 가져다 쓰겠다.
-const Blockchain = require('./blockchain')
+const Blockchain = require('./blockchain');
+//sha256 모듈을 가져다 쓰겠다.
+const  sha256 = require('sha256');
 
 //위에서 가져온 모듈의 객체를 만든다.
 const bitcoin = new Blockchain();
@@ -34,27 +36,15 @@ console.log(bitcoin.chain[2])
 
 //결과
 /*
-Blockchain {
-  chain: 
-   [ { index: 1,
-       timestamp: 1527229993383,
-       transactions: [],
-       nonce: 1111,
-       hash: '1a1a1a1a1a1a',
-       previousBlockHash: 'aaaaaaa' },
-     { index: 2,
-       timestamp: 1527229993384,
-       transactions: [Array],
-       nonce: 2222,
-       hash: '2b2b2b2b2b2b',
-       previousBlockHash: 'bbbbbbb' },
-     { index: 3,
-       timestamp: 1527229993384,
-       transactions: [Array],
-       nonce: 3333,
-       hash: '3c3c3c3c3c3c',
-       previousBlockHash: 'ccccccc' } ],
-  pendingTransaction: [] }
+{ index: 3,
+  timestamp: 1527230266389,
+  transactions: 
+   [ { amount: 777, sender: 'PACKadffaaf', recipient: 'HONGllalflks' },
+     { amount: 888, sender: 'PACKadffaaf', recipient: 'HONGllalflks' },
+     { amount: 999, sender: 'PACKadffaaf', recipient: 'HONGllalflks' } ],
+  nonce: 3333,
+  hash: '3c3c3c3c3c3c',
+  previousBlockHash: 'ccccccc' }
 */
 
 

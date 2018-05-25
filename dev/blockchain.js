@@ -1,3 +1,6 @@
+//sha256 모듈을 가져다 쓰겠다.
+const  sha256 = require('sha256');
+
 //블록체인 데이터 구조
 function Blockchain(){
     this.chain = [];
