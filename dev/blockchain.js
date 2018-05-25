@@ -24,3 +24,6 @@ Blockchain.prototype.createNewBlock = function(nonce,previousBlockHash,hash){
     return newBlock;
 
 }
+
+//Blockchain 모듈화
+module.exports = Blockchain;
