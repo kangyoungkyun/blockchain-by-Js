@@ -22,22 +22,39 @@ bitcoin.createNewTransaction(888,'PACKadffaaf','HONGllalflks')
 bitcoin.createNewTransaction(999,'PACKadffaaf','HONGllalflks') 
 
 
+//새로운 블락 만들기
+bitcoin.createNewBlock(3333,"ccccccc","3c3c3c3c3c3c");
+
+
 
 
 //찍어보기
-console.log(bitcoin)
+console.log(bitcoin.chain[2])
 
 
 //결과
 /*
-{ index: 2,
-  timestamp: 1527229359157,
-  transactions: 
-   [ { amount: 100, sender: 'PACKadffaaf', recipient: 'HONGllalflks' } ],
-  nonce: 2222,
-  hash: '2b2b2b2b2b2b',
-  previousBlockHash: 'bbbbbbb' }
-
+Blockchain {
+  chain: 
+   [ { index: 1,
+       timestamp: 1527229993383,
+       transactions: [],
+       nonce: 1111,
+       hash: '1a1a1a1a1a1a',
+       previousBlockHash: 'aaaaaaa' },
+     { index: 2,
+       timestamp: 1527229993384,
+       transactions: [Array],
+       nonce: 2222,
+       hash: '2b2b2b2b2b2b',
+       previousBlockHash: 'bbbbbbb' },
+     { index: 3,
+       timestamp: 1527229993384,
+       transactions: [Array],
+       nonce: 3333,
+       hash: '3c3c3c3c3c3c',
+       previousBlockHash: 'ccccccc' } ],
+  pendingTransaction: [] }
 */
 
 
