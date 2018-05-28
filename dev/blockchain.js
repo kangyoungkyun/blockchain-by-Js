@@ -56,11 +56,16 @@ Blockchain.prototype.hashBlock = function(previousBlockHash,currentBlockData,non
     return hash
 }
 
+//pow 작업 함수
 Blockchain.prototype.proofOfWork = function(previousBlockHash,currentBlockData){
-    //1. bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce)
-    //2. 맞는 해쉬값(0000asldjflak)을 찾을 때 까지 반복적으로 1.번 작업을 실행한다.
-    //3. 맞는 해쉬 값을 찾기 위해서 nonce를 변경해 가면서 찾는다.
-    //4. 마지막으로 정확한 hash 값을 찾고 정확한 hash 값을 찾은 nonce 값을 리턴 한다.
+
+    let nonce = 0;
+    let hash = this.hashBlock(previousBlockHash,currentBlockData,nonce);
+    while(hash.substring(0,4) != '0000'){
+        nonce++;
+        hash = this.hashBlock(previousBlockHash,currentBlockData,nonce)
+    }
+    return nonce;
 }
 
 
