@@ -28,25 +28,20 @@ const currentBlockData = [
     
 ]
 
-const nonce = 100;
+//pow 작업
+//console.log(bitcoin.proofOfWork(previousBlockHash,currentBlockData)); //141237
+
+console.log(bitcoin.hashBlock(previousBlockHash,currentBlockData,141237))
 
 
-console.log(bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce))
+
+
+//const nonce = 100;
+
+//console.log(bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce))
 
 
 //ec90a89a8364d8762ec3d365f2c8c91b1547af493e068009c119356b41f9699b
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

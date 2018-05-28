@@ -56,7 +56,7 @@ Blockchain.prototype.hashBlock = function(previousBlockHash,currentBlockData,non
     return hash
 }
 
-//pow 작업 함수
+//pow 작업 함수 - 이전블록의 해쉬, 현재 블록 데이터와 nonce 값을 사용한다.
 Blockchain.prototype.proofOfWork = function(previousBlockHash,currentBlockData){
 
     let nonce = 0;
