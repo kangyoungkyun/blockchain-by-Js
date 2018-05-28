@@ -9,8 +9,6 @@ const bitcoin = new Blockchain();
 console.log(bitcoin)
 
 
-
-
 //제네시스 블락 !
 // Blockchain {
 //     chain: 
