@@ -19,8 +19,10 @@ app.get('/blockchain', function (req, res) {
 
 // 웹브라우저에 post 방식으로 /transaction 주소를 입력했을 때 실행
 app.post('/transaction', function (req, res) {
-  console.log(req.body);
-  res.send(`거래 총액은 ${req.body.amount} 코인`);
+
+  const blockIndex = bitcoin.createNewTransaction(req.body.amount,req.body.sender,req.body.recipient)
+  res.json({note : `트랜젝션은 ${blockIndex} 블락안으로 들어갈 예정입니다.`})
+
 })
 
 
