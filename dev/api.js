@@ -3,12 +3,17 @@ var app = express()
 //bodyParser 임포트
 var bodyParser = require('body-parser')
 
+//앞에서 만든 blockchain 모듈 임포트 -> 코인객체 생성
+var Blockchain = require('./blockchain');
+var bitcoin = new Blockchain();
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
 
 // 웹브라우저에 get 방식으로 /blockchain 주소를 입력했을 때 실행
 app.get('/blockchain', function (req, res) {
-  res.send('blockchain Start')
+  res.send(bitcoin)
 })
  
 
