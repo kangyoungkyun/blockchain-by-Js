@@ -7,6 +7,9 @@ var bodyParser = require('body-parser')
 var Blockchain = require('./blockchain');
 var bitcoin = new Blockchain();
 
+//나의 네트워크 고유 아이디 생성
+var uuid = require('uuid/v1');
+var nodeAddress = uuid().split('-').join('');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
@@ -36,7 +39,7 @@ app.get('/mine', function (req, res) {
 
   //현재 블락의 데이터 : 미완료된 거래내역 + 블락의 index 값
   const currentBlockData = {
-    transactions:bitcoin.pendingTransactions,
+    transactions:bitcoin.pendingTransaction,
     index:lastBlock['index'] + 1
   };
 
@@ -44,6 +47,9 @@ app.get('/mine', function (req, res) {
   const nonce = bitcoin.proofOfWork(previousBlockHash,currentBlockData);
   //이전블락해쉬, 현재블럭 데이터, nonce 값을 넣고 현재 블락의 해쉬 값 리턴
   const blockHash = bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce);
+
+  //채굴에 대한 보상
+  bitcoin.createNewTransaction(10,"bosang0000",nodeAddress)
 
   //새로운 블락을 생성하려면 nonce,previousBlockHash,blockHash 값이 필요하다.
   const newBlock = bitcoin.createNewBlock(nonce,previousBlockHash,blockHash);
