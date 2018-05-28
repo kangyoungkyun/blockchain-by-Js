@@ -5,6 +5,8 @@ const  sha256 = require('sha256');
 function Blockchain(){
     this.chain = [];
     this.pendingTransaction = [];
+    //제네시스 블락 - 임의의 인자값 넣어준다.
+    this.createNewBlock(100,'0','0')
 }
 
 

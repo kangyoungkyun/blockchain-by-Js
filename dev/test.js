@@ -5,33 +5,55 @@ const Blockchain = require('./blockchain');
 //위에서 가져온 모듈의 객체를 만든다.
 const bitcoin = new Blockchain();
 
-const previousBlockHash = "abcdedferefa"
-const currentBlockData = [
-    {
-        amount: 10,
-        sender: 'BACKadffaaf',
-        recipient: 'HONGllalflks'
+//제네시스 블락
+console.log(bitcoin)
 
-    },
-    {
-        amount: 20,
-        sender: 'PACKadffaaf',
-        recipient: 'HONGllalflks'
 
-    },
-    {
-        amount: 30,
-        sender: 'PACKadffaaf',
-        recipient: 'HONGllalflks'
 
-    }
+
+//제네시스 블락 !
+// Blockchain {
+//     chain: 
+//      [ { index: 1,
+//          timestamp: 1527475657742,
+//          transactions: [],
+//          nonce: 100,
+//          hash: '0',
+//          previousBlockHash: '0' } ],
+//     pendingTransaction: [] }
+  
+
+
+
+
+
+// const previousBlockHash = "abcdedferefa"
+// const currentBlockData = [
+//     {
+//         amount: 10,
+//         sender: 'BACKadffaaf',
+//         recipient: 'HONGllalflks'
+
+//     },
+//     {
+//         amount: 20,
+//         sender: 'PACKadffaaf',
+//         recipient: 'HONGllalflks'
+
+//     },
+//     {
+//         amount: 30,
+//         sender: 'PACKadffaaf',
+//         recipient: 'HONGllalflks'
+
+//     }
     
-]
+// ]
 
 //pow 작업
 //console.log(bitcoin.proofOfWork(previousBlockHash,currentBlockData)); //141237
 
-console.log(bitcoin.hashBlock(previousBlockHash,currentBlockData,141237))
+//console.log(bitcoin.hashBlock(previousBlockHash,currentBlockData,141237))
 
 
 
