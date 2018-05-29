@@ -10,6 +10,8 @@ var bitcoin = new Blockchain();
 //나의 네트워크 고유 아이디 생성
 var uuid = require('uuid/v1');
 var nodeAddress = uuid().split('-').join('');
+//동적 포트
+var port = process.argv[2];
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
@@ -62,7 +64,7 @@ app.get('/mine', function (req, res) {
 })
 
 
-
-app.listen(3000,function(){
-  console.log('listening on port 3000')
+//동적 포트
+app.listen(port,function(){
+  console.log(`listening on port ${port}...`)
 })

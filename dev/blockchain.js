@@ -1,10 +1,16 @@
 //sha256 모듈을 가져다 쓰겠다.
 const  sha256 = require('sha256');
+//현재 노드의 url
+const currentNodeUrl = process.argv[3];
 
 //블록체인 데이터 구조
 function Blockchain(){
     this.chain = [];
     this.pendingTransaction = [];
+    //현재 node url
+    this.currentNodeUrl = currentNodeUrl;
+    this.networkNodes = [];
+
     //제네시스 블락 - 임의의 인자값 넣어준다.
     this.createNewBlock(100,'0','0')
 }
