@@ -101,17 +101,29 @@ app.post('/register-and-broadcast-node',function(req,res){
       
       return rq(bulkRegisterOption);
   }).then(data => {
-    res.json({nodt: "새로운 노드가 전체 네트워크에 성공적으로 등록이 되었습니다."})
+    res.json({nodt: "새로운 노드가 전체 네트워크에 성공적으로 등록이 되었습니다."});
 
 });
 });
-
 
 
 // 네트워크에 새로운 노드 등록
 app.post('/register-node',function(req,res){
+  //새로운 노드 주소
+  const newNodeUrl = req.body.newNodeUrl;
+  //코인 네트워크에 새로운 노드의 주소가 없다면,
+  const nodeNotAlreadyPresent = bitcoin.networkNodes.indexOf(newNodeUrl) == -1;
+  //코인의 현재 url이 새로운 노드 주소가 아니라면, 즉 현재 접속한 주소와 중복되지 않는다면,
+  const notCurrentNode = bitcoin.currentNodeUrl !== newNodeUrl;
+
+  if(nodeNotAlreadyPresent&&notCurrentNode){
+    //코인 전체 네트워크에 새로운 주소 등록
+    bitcoin.networkNodes.push(newNodeUrl);
+    res.json({note: "새로운 노드가 등록되었습니다."})
+  }
 
 })
+
 // 새로운 노드에 기존의 노드 정보 등록
 app.post('/register-nodes-bulk',function(req,res){
 
