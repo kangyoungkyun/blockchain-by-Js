@@ -13,6 +13,9 @@ var nodeAddress = uuid().split('-').join('');
 //동적 포트
 var port = process.argv[2];
 
+//request-promise 모듈
+var rp = require('request-promise');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
 
@@ -65,6 +68,13 @@ app.get('/mine', function (req, res) {
 
 //새로운 노드를 등록하고 전체 네트워크에 알림
 app.post('/register-and-broadcast-node',function(req,res){
+  //새로 진입한 노드 주소
+  const newNodeUrl = req.body.newNodeUrl;
+  //비트코인 네트워크에 새로 진입한 노드의 주소가 없을 경우 추가
+  if(bitcoin.networkNodes.indexOf(newNodeUrl) == -1){
+    bitcoin.networkNodes.push(newNodeUrl);
+  }
+
 
 })
 // 네트워크에 새로운 노드 등록
