@@ -74,6 +74,26 @@ app.post('/register-and-broadcast-node',function(req,res){
   if(bitcoin.networkNodes.indexOf(newNodeUrl) == -1){
     bitcoin.networkNodes.push(newNodeUrl);
   }
+  const regNodesPromises = [];
+  //비트코인 네트워크에 등록된 네트워크에 새로운 노드 정보를 등록
+  bitcoin.networkNodes.forEach(networkNodes => {
+      //register - node
+      const requestOption = {
+        uri: networkNodesUrl + '/register-node',
+        method: 'POST',
+        body:{newNodeUrl:newNodeUrl},
+        json:true
+      };
+      //순차적으로 비동기를 실행하기 위해서 배열에 넣음
+      regNodesPromises.push(rp(requestOption))
+  }); //for 문 끝
+  
+  //순차적으로 비동기 작업 처리
+  Promise.all(regNodesPromises)
+  .then(data => {
+      //use data
+  });
+
 
 
 })
