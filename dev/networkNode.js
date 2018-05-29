@@ -63,8 +63,22 @@ app.get('/mine', function (req, res) {
 
 })
 
+//새로운 노드를 등록하고 전체 네트워크에 알림
+app.post('/register-and-broadcast-node',function(req,res){
 
-//동적 포트
+})
+// 네트워크에 새로운 노드 등록
+app.post('/register-node',function(req,res){
+
+})
+// 새로운 노드에 기존의 노드 정보 등록
+app.post('/register-nodes-bulk',function(req,res){
+
+})
+
+
+//동적 포트 package.json script 객체에서 2번째 방에 들어있는 데이터  3001,3002,3003 ...3005
+var port = process.argv[2];
 app.listen(port,function(){
   console.log(`listening on port ${port}...`)
 })
