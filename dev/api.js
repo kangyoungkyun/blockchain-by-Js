@@ -53,6 +53,12 @@ app.get('/mine', function (req, res) {
 
   //새로운 블락을 생성하려면 nonce,previousBlockHash,blockHash 값이 필요하다.
   const newBlock = bitcoin.createNewBlock(nonce,previousBlockHash,blockHash);
+
+  res.json({
+    note: "새로운 블락이 성공적으로 만들어졌습니다.",
+    newBlock : newBlock 
+  })
+
 })
 
 
