@@ -126,7 +126,21 @@ app.post('/register-node',function(req,res){
 
 // 새로운 노드에 기존의 노드 정보 등록
 app.post('/register-nodes-bulk',function(req,res){
-
+  //같은 네트워크에 서로 연결되어 있는 모든 노드 url 배열에 등록
+  const allNetworkNodes = req.body.allNetworkNodes;
+  //배열에 담긴 노드 주소들 하나씩 꺼내기
+  allNetworkNodes.forEach(networkNodeUrl => {
+    //현재 네트워크에 url 값이 존재하지 않아야 하고,
+    const nodeNotAlreadyPresent = bitcoin.networkNodes.indexOf(networkNodeUrl) == -1;
+    //자기 자신이 아니어야 하고,
+    const notCurrentNode = bitcoin.currentNodeUrl !== networkNodeUrl;
+    
+    if(nodeNotAlreadyPresent && notCurrentNode){
+      //위의 두 조건을 만족시킨다면 배열 개수 만큼 네트워크에 등록
+      bitcoin.networkNodes.push(networkNodeUrl);
+    }
+  });
+  res.json({note: '모든 노드에 새로운 node가 등록이 되었습니다.'})
 })
 
 
