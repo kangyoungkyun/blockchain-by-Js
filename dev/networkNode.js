@@ -87,16 +87,27 @@ app.post('/register-and-broadcast-node',function(req,res){
       //순차적으로 비동기를 실행하기 위해서 배열에 넣음
       regNodesPromises.push(rp(requestOption))
   }); //for 문 끝
-  
+
   //순차적으로 비동기 작업 처리
   Promise.all(regNodesPromises)
   .then(data => {
-      //use data
-  });
+      //새로운 노드안에 전체 네트워크에 대한 정보 한번에 입력해주기
+      const bulkRegisterOption = {
+        uri : newNodeUrl + '/register-nodes-bulk',
+        method : 'POST',
+        body : {allNetworkNodes : [...bitcoin.networkNodes,bitcoin.currentNodeUrl]},
+        json : true
+      };
+      
+      return rq(bulkRegisterOption);
+  }).then(data => {
+    res.json({nodt: "새로운 노드가 전체 네트워크에 성공적으로 등록이 되었습니다."})
+
+});
+});
 
 
 
-})
 // 네트워크에 새로운 노드 등록
 app.post('/register-node',function(req,res){
 
